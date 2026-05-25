@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L'incastellamento - Laboratorio Interattivo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f1ea;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+      url('https://upload.wikimedia.org/wikipedia/commons/0/08/Rocca_Calascio.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+
+    .intro {
+      font-size: 1.1em;
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .castle {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 50px;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .castle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .castle-content {
+      padding: 25px;
+    }
+
+    h2 {
+      color: #5c2e00;
+    }
+
+    .question {
+      background: #ece7de;
+      padding: 15px;
+      border-left: 5px solid #7a4d00;
+      margin: 20px 0;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .question:hover {
+      background: #ddd4c5;
+    }
+
+    .answer {
+      display: none;
+      padding: 15px;
+      background: #faf8f3;
+      border-left: 5px solid #2c5d2c;
+      margin-top: -10px;
+      margin-bottom: 20px;
+    }
+
+    .mission {
+      background: #2c2c2c;
+      color: white;
+      padding: 30px;
+      border-radius: 12px;
+      margin-top: 40px;
+    }
+
+    .mission h3 {
+      margin-top: 0;
+    }
+
+    .footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 30px;
+      margin-top: 50px;
+    }
+
+    @media(max-width: 800px) {
+      .castle {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>L'INCASTELLAMENTO</h1>
+  <p>
+    Laboratorio interattivo sul controllo del territorio, sulla crisi del potere centrale e sulla nascita dei castelli nell'Alto Medioevo.
+  </p>
+</header>
+
+<section>
+  <div class="intro">
+    <h2>Scenario storico</h2>
+    <p>
+      Europa, anno 920.
+      L'Impero carolingio si è frammentato.
+      Le incursioni aumentano.
+      Le strade sono insicure.
+      I re controllano male il territorio.
+    </p>
+
+    <p>
+      Tu sei un consigliere politico medievale.
+      Devi capire dove costruire castelli, perché farlo e quali vantaggi possono offrire.
+    </p>
+
+    <div class="mission">
+      <h3>MISSIONE</h3>
+      <p>
+        Analizza i castelli.
+        Rispondi alle domande.
+        Cerca di capire:
+      </p>
+
+      <ul>
+        <li>Come si controlla un territorio?</li>
+        <li>Perché nascono i castelli?</li>
+        <li>Chi trae vantaggio dall'incastellamento?</li>
+        <li>Difesa e potere sono collegati?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="castle">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Rocca_Calascio.jpg" alt="Rocca Calascio">
+
+    <div class="castle-content">
+      <h2>Rocca Calascio</h2>
+      <p>
+        Fortezza costruita in posizione elevata sugli Appennini.
+      </p>
+
+      <div class="question" onclick="toggleAnswer('a1')">
+        Perché costruire un castello in un luogo così scomodo?
+      </div>
+      <div class="answer" id="a1">
+        Perché il controllo strategico era più importante del comfort.
+        Da una posizione elevata si potevano avvistare nemici, controllare vallate e comunicare con altre torri.
+      </div>
+
+      <div class="question" onclick="toggleAnswer('a2')">
+        Quali vantaggi offre una montagna per la difesa?
+      </div>
+      <div class="answer" id="a2">
+        L'altura rallenta gli attacchi, rende difficile l'assedio e permette a pochi soldati di difendere il castello.
+      </div>
+
+      <div class="question" onclick="toggleAnswer('a3')">
+        Quale territorio poteva controllare questa fortezza?
+      </div>
+      <div class="answer" id="a3">
+        Valli, percorsi montani, vie di comunicazione e movimenti militari.
+      </div>
+    </div>
+  </div>
+
+  <div class="castle">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Monteriggioni.jpg" alt="Monteriggioni">
+
+    <div class="castle-content">
+      <h2>Monteriggioni</h2>
+      <p>
+        Borgo fortificato costruito per controllare il territorio toscano.
+      </p>
+
+      <div class="question" onclick="toggleAnswer('b1')">
+        Perché costruire mura attorno a un intero villaggio?
+      </div>
+      <div class="answer" id="b1">
+        Per proteggere popolazione, magazzini, attività economiche e vie commerciali.
+      </div>
+
+      <div class="question" onclick="toggleAnswer('b2')">
+        Come può un castello controllare i commerci?
+      </div>
+      <div class="answer" id="b2">
+        Controllando strade, mercati, passaggi e imponendo pedaggi e tasse.
+      </div>
+
+      <div class="question" onclick="toggleAnswer('b3')">
+        Difesa e potere economico sono collegati?
+      </div>
+      <div class="answer" id="b3">
+        Sì. Chi protegge il territorio controlla anche ricchezze, traffici e popolazione.
+      </div>
+    </div>
+  </div>
+
+  <div class="castle">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Fenis_castle.jpg" alt="Castello di Fenis">
+
+    <div class="castle-content">
+      <h2>Castello di Fénis</h2>
+      <p>
+        Castello simbolo del potere signorile e dell'autorità politica.
+      </p>
+
+      <div class="question" onclick="toggleAnswer('c1')">
+        Perché costruire un castello grande e spettacolare?
+      </div>
+      <div class="answer" id="c1">
+        Per mostrare ricchezza, autorità e prestigio politico.
+      </div>
+
+      <div class="question" onclick="toggleAnswer('c2')">
+        Il castello serviva solo a combattere?
+      </div>
+      <div class="answer" id="c2">
+        No. Era anche residenza, tribunale, centro amministrativo e simbolo di potere.
+      </div>
+
+      <div class="question" onclick="toggleAnswer('c3')">
+        Perché le mura impressionavano la popolazione?
+      </div>
+      <div class="answer" id="c3">
+        Perché rendevano visibile la forza del signore feudale e ricordavano chi comandava.
+      </div>
+    </div>
+  </div>
+
+  <section class="intro">
+    <h2>Discussione finale</h2>
+
+    <div class="question" onclick="toggleAnswer('d1')">
+      L'incastellamento nasce per difendersi o per controllare?
+    </div>
+    <div class="answer" id="d1">
+      Entrambe le cose. I castelli servono sia a difendere il territorio sia a controllare popolazione, commerci e risorse.
+    </div>
+
+    <div class="question" onclick="toggleAnswer('d2')">
+      Più castelli significano più forza o più debolezza dello Stato?
+    </div>
+    <div class="answer" id="d2">
+      Più forza locale ma spesso meno controllo centrale. I signori feudali diventano autonomi.
+    </div>
+
+    <div class="question" onclick="toggleAnswer('d3')">
+      Esistono situazioni moderne simili?
+    </div>
+    <div class="answer" id="d3">
+      Sì. Quando uno Stato fatica a controllare il territorio, emergono poteri locali, gruppi armati o sistemi di sicurezza autonomi.
+    </div>
+  </section>
+</section>
+
+<div class="footer">
+  <p>
+    Laboratorio storico sull'incastellamento - attività interattiva
+  </p>
+</div>
+
+<script>
+  function toggleAnswer(id) {
+    const el = document.getElementById(id);
+
+    if (el.style.display === 'block') {
+      el.style.display = 'none';
+    } else {
+      el.style.display = 'block';
+    }
+  }
+</script>
+
+</body>
+</html>
